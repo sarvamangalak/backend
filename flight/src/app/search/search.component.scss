@@ -1,0 +1,46 @@
+body
+{   font-style: initial;
+    background-image: url("download.jpeg");
+    background-size: cover;
+    background-position:center;
+    padding:20px;
+
+}
+.booking-form
+{
+    background-color:white;
+    height: 500px;
+    width:800px;
+    margin:auto;
+    padding:30px;
+    opacity:0.7;
+    border:1px;
+   max-width: 400px;
+}
+.booking-form h1
+{
+text-align: center;
+}
+.booking-form h3
+{
+   font-size: 20px;
+}
+.trip-details
+{
+margin:0 20px;
+}
+.trip-details .btn
+{
+    margin:20px 10px 20px 0px ;  
+}
+.Fly-From
+{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size:12px;
+
+}
+.search
+{
+   text-align: right;
+}

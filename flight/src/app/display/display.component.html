@@ -1,0 +1,36 @@
+<p class="btn btn-info mx-3"> Search the city</p>
+<input class="form-control" type ="text" name ="departureCity" [(ngModel)] = "departureCity" (ngModelChange)="Search()" placeholder="Enter the from place" />
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FLIGHT_NUMBER</th>
+        <th scope="col">AIRLINE</th>
+        <th scope="col">DEPARTURE_CITY</th>
+        <th scope="col">ARRIVAL_CITY</th>
+        <th scope="col">DAY_DEPARTURE</th>
+        <th scope="col">ESTIMATED_DEPARTURE</th>
+        <th scope="col">BUSINESS_CLASS</th>
+        <th scope="col">NONBUSINESS_CLASS</th>
+        <th scope="col">TICKET_COST</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of emplData">
+        <td>{{row.id}}</td>
+        <td>{{row.flightNumber}}</td>
+        <td>{{row.airline}}</td>
+  <td>{{row.departureCity}}</td>
+  <td>{{row.arrivalCity}}</td>
+  <td>{{row.dayDeparture}}</td>
+  <td>{{row.estimatedDeparture}}</td>
+  <td>{{row.business_Class}}</td>
+  <td>{{row.nonBusiness_Class}}</td>
+  <td>{{row.ticket_cost}}</td>
+  <td>
+   <button (click)="next()" class="btn btn-info mx-3">Book</button>
+  </td>
+      </tr>
+    </tbody>
+  </table>
+  

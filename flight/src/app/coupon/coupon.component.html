@@ -1,0 +1,64 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <h1 style="color:white;">Admin Coupon </h1>
+      <div class="d-flex">
+        <button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add</button>
+      </div>
+    </div>
+    </nav>
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">id</th>    
+          <th scope="col">CouponCode</th>
+          <th scope="col">Discount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of emplData">
+            <th scope="col">{{row.id}}</th>    
+            <th scope="col">{{row.couponCode}}</th>
+            <th scope="col">{{row.discount}}</th>
+    <td>
+      <button (click)="onEdit(row)" class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</button>
+      <button (click)="deleteFlight(row)" class="btn btn-danger mx-6">DELETE</button>
+    </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]= "formvalue">
+              <div class="mb-3">
+                <label for="exampleInputid" class="form-label">id</label>
+                <input type="text" formControlName="id" class="form-control" id="exampleInputid">
+                 </div>
+              <div class="mb-3">
+                <label for="exampleInputFlight_Number" class="form-label">CouponCode</label>
+                <input type="text" formControlName="couponCode" class="form-control" id="exampleInputFlight_Number">
+                 </div>
+                 <div class="mb-3">
+                    <label for="exampleInputFlight_Number" class="form-label">Discount</label>
+                    <input type="text" formControlName="discount" class="form-control" id="exampleInputFlight_Number">
+                     </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" (click)="postFlightDetails()" class="btn btn-primary">Add</button>
+            <button type="button" (click)="updateFlightdetails()" class="btn btn-primary">update</button>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <button type ="button" (click)="logout()">Logout</button>
+    

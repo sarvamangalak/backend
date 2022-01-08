@@ -1,0 +1,29 @@
+<p class="btn btn-info mx-3">Check the History</p>
+<input class="form-control" type ="text" name ="email" [(ngModel)] = "email" (ngModelChange)="Search()" placeholder="Enter the email" />
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">NO_SEATS</th>
+        <th scope="col">SELECT_SEATS</th>
+        <th scope="col">DEPATURE_CITY</th>
+        <th scope="col">ARRIVAL_CITY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of emplData">
+        <td>{{row.id}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.email}}</td>
+  <td>{{row.no_Seats}}</td>
+  <td>{{row.select_Seats}}</td>
+  <td>{{row.departureCity}}</td>
+  <td>{{row.arrivalCity}}</td>
+  <td>
+   <button (click)="history()" class="btn btn-info mx-3">Download</button>
+  </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <div class="Booking-form">
+        <h1 style="color:black">Add Passenger</h1>
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show">
+            <strong>Success</strong> Your Data has been saved 
+            <button (click)="closeAlert" type="button" class="close" >
+                <span aria-hidden="true">&times;</span>
+            </button>
+       
+        </div>
+        <form [formGroup]="Register" (ngSubmit)="collection()">
+            <div class ="form-group">
+                <label>Id</label>
+                <input type="text" class="form-control" placeholder="Enter id" formControlName="id">
+            </div>
+            <div class ="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Enter name" formControlName="name">
+            </div>
+            <div class ="form-group">
+                <label>Gender</label>
+                <input type="text" class="form-control" placeholder="Enter Email" formControlName="gender">
+            </div>
+            <div class ="form-group">
+                <label>Age</label>
+                <input type="text" class="form-control" placeholder="Enter age" formControlName="age">
+            </div>
+            <div class ="form-group">
+                <label>meal</label>
+                <input type="text" class="form-control" placeholder="Enter meal" formControlName="meal">
+            </div>
+            
+            <button type="submit" (click)="done()" class="btn btn-primary">Add Passenger</button><br>
+            <button type="submit" (click)="sub()" class="btn btn-primary">Submit</button><br>
+            
+        </form>
+    </div>
+    
+    </body>
+</html>

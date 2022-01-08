@@ -1,0 +1,94 @@
+<html>
+    <body>
+        <div class ="loginHeading">
+            <img src ="assets/images/return.JPG" class = "button1" style ="width:50px;height:47px;">
+                <img src ="assets/images/stock.JPG" class = "button1" style ="width:120px;height:58px;margin-left: 490px;"><br>
+              
+            
+        </div>
+               
+        <div id = "outer">
+        
+        <div id ="id01" class="modal">
+            <table class="table mt-3">
+                <thead>
+                  <tr>
+                    <th scope="col">companyCode</th>
+                    <th scope="col">companyName</th>
+                    <th scope="col">CEO</th>
+                    <th scope="col">turnOver</th>
+                    <th scope="col">website</th>
+                    <th scope="col">stockExchange</th>
+                    <th scope="col">price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of emplData">
+                    <td>{{row.companyCode}}</td>
+                    <td>{{row.companyName}}</td>
+                    <td>{{row.CEO}}</td>
+              <td>{{row.turnOver}}</td>
+              <td>{{row.website}}</td>
+              <td>{{row.stockExchange}}</td>
+              <td>{{row.price}}</td>
+              <td>
+               
+            </td>
+                  </tr>
+                </tbody>
+              </table>
+  
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]= "formvalue">
+                    <div class="mb-3">
+                      <label for="exampleInputid" class="form-label">companyCode</label>
+                      <input type="text" formControlName="id" class="form-control" id="exampleInputid">
+                       </div>
+                    <div class="mb-3">
+                      <label for="exampleInputFlight_Number" class="form-label">companyName</label>
+                      <input type="text" formControlName="flightNumber" class="form-control" id="exampleInputFlight_Number">
+                       </div>
+                    <div class="mb-3">
+                      <label for="exampleInputAirline" class="form-label">CEO</label>
+                      <input type="text" formControlName="airline" class="form-control" id="exampleInputAirline">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputdepartureCity" class="form-label">turnOver</label>
+                      <input type="text" formControlName="departureCity" class="form-control" id="exampleInputdepartureCity">
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label for="exampleInputarrivalCity" class="form-label">website</label>
+                      <input type="text" formControlName="arrivalCity" class="form-control" id="exampleInputarrivalCity">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputdateOfDeparture" class="form-label">stockExchange</label>
+                      <input type="text" formControlName="dayDeparture" class="form-control" id="exampleInputdateOfDeparture">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputestimatedDepartureTime" class="form-label">price</label>
+                      <input type="text" formControlName="estimatedDeparture" class="form-control" id="exampleInputestimatedDepartureTime">
+                    </div>
+          
+                  </form>
+                </div>
+             
+              </div>
+            </div>
+          </div>
+          
+    </div>
+
+            <br>
+            <img src ="assets/images/bottomq.JPG" class = "button1" style="width:640px;height: 60px;" ><br>
+
+        
+    </body>
+</html>

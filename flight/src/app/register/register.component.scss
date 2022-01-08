@@ -1,0 +1,26 @@
+body
+{   font-style: initial;
+    background-image: url("download.jpeg");
+    background-size: cover;
+    background-position:center;
+    padding:20px;
+
+}
+.login-form
+{
+    margin:auto;
+  text-align: center;
+    height: 500px;
+    width:800px; 
+    padding:30px;
+    opacity:0.9;
+    border:1px;
+  max-width: 600px;
+   
+}
+.login-form h6
+{
+  
+  text-align: right;
+  font-size: 15px;
+}
