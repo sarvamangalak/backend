@@ -1,0 +1,12 @@
+package com.company.model;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class StockModel {
+
+	private String companyCode;
+	private float price;
+	private  LocalDate date = LocalDate.now();
+	private LocalTime time =LocalTime.now();
+}

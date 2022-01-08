@@ -1,0 +1,37 @@
+package com.company.mappper;
+
+import org.springframework.stereotype.Component;
+
+import com.company.entity.Company;
+import com.company.model.CompanyModel;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+@Component
+public class CompanyMapper {
+	
+	public Company toCompanyEntity(CompanyModel model)
+	{
+		
+		ModelMapper mapper = new ModelMapper();
+		
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		Company companyDto = mapper.map(model, Company.class);
+		return companyDto;
+	}
+	
+	public CompanyModel toCompany(Company companyDto) 
+	{
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		CompanyModel company = mapper.map(companyDto, CompanyModel.class);
+		return company;
+	}
+	
+	public List<Company> toCompanyDtos(List<CompanyModel> companies)
+	{
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		List<Company> companyDtos = Arrays.asList(mapper.map(companies, Company[].class));
+		return companyDtos;
+	}
+}

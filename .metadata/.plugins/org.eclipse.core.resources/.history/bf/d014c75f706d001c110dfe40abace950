@@ -1,0 +1,79 @@
+package com.company.service;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.company.entity.Company;
+import com.company.entity.Stock;
+import com.company.mappper.CompanyMapper;
+import com.company.mappper.StockMapper;
+import com.company.model.CompanyModel;
+import com.company.model.StockModel;
+import com.company.repository.CompanyRepository;
+
+@Service
+public class CompanyService {
+	@Autowired
+	CompanyRepository companyRepository;
+
+	@Autowired
+	private CompanyMapper companyMapper;
+
+	@Autowired
+	private StockMapper stockMapper;
+
+	public List<Company> getCompanyDetails() {
+		
+		List<CompanyModel> companies= companyRepository.findAll();
+		return companyMapper.toCompanyDtos(companies);
+
+	}
+
+	/*
+	 * public Optional<Company> findById(String company) { Optional<Company>
+	 * companyId =companyRepository.findById(company); if(!companyId.isPresent())
+	 * return null;
+	 * 
+	 * ModelMapper mapper = new ModelMapper(); CompanyModel companyDto =
+	 * mapper.map(Company.class, CompanyModel.class); List<StockModel> stockId=
+	 * Arrays.asList( mapper.map(Stock[].class, StockModel[].class));
+	 * companyDto.setStock(stockId);
+	 * System.out.println("value of stocks id "+stockId);
+	 * System.out.println("value of Company id "+companyDto);
+	 * 
+	 * return companyId;
+	 * 
+	 * 
+	 * }
+	 */
+
+	public Company addCompany(Company companyDto) 
+	{
+		CompanyModel company = companyMapper.toCompany(companyDto);
+		company = companyRepository.save(company);
+		companyDto = companyMapper.toCompanyDto(company);
+		return companyDto;
+	}
+	public Company editCompany(Company companyDto) 
+	{
+		CompanyModel updatedCompany = companyRepository.save(companyMapper.toCompany(companyDto));
+		return companyMapper.toCompanyDto(updatedCompany);
+	}
+	public void deleteCompany(String companyCode) {
+		companyRepository.deleteById(companyCode);
+	}
+
+	public List<Stock> getStock(String companyCode) {
+		Optional<CompanyModel> company = companyRepository.findById(companyCode);
+		if (!company.isPresent())
+			return null;
+		List<Stock> st= stockMapper.toStockPriceDtos(company.get().getStock());
+		System.out.println("Value of stock"+st);
+		return st;
+		  
+	}
+}

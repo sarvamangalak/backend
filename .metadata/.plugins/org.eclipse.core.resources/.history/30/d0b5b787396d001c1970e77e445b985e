@@ -1,0 +1,16 @@
+package com.company.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CompanyModel {
+
+	private String companyCode;
+	private String companyName;
+	private String ceo;
+	private String website;
+	private String stockExchange;
+	private float turnOver;
+	
+	private List<StockModel> stock = new ArrayList<>();
+}

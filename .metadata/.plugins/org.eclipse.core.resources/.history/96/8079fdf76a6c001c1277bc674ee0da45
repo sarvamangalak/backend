@@ -1,0 +1,18 @@
+package com.company.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.company.model.Company;
+import com.company.repository.CompanyRepository;
+
+@Service
+public class CompanyService {
+	@Autowired
+	CompanyRepository companyRepository;
+	
+	public List<Company> getCompanyDetails(){
+		
+	}
+	
+
+}

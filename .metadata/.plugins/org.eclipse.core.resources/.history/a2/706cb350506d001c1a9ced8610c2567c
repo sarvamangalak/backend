@@ -1,0 +1,30 @@
+package com.company.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.company.model.StockModel;
+
+@Document(collection ="company")
+public class Company {
+	@Id
+	@Indexed(unique=true)
+	private String companyCode;
+	private String companyName;
+	private String ceo;
+	private String website;
+	private String stockExchange;
+	private float turnOver;
+	@DBRef
+	private List<Stock> stock = new ArrayList<>();
+
+	
+	
+	
+
+}

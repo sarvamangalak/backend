@@ -1,0 +1,6 @@
+package com.stock.controller;
+
+@RestController
+public class StockController {
+
+}

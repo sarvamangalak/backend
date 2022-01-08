@@ -1,0 +1,9 @@
+package com.company.controller;
+
+
+
+@RestController
+public class CompanyController {
+
+	
+}

@@ -1,0 +1,46 @@
+package com.company.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.company.model.Company;
+import com.company.repository.CompanyRepository;
+
+@Service
+public class CompanyService {
+	@Autowired
+	CompanyRepository companyRepository;
+	
+	public List<Company> getCompanyDetails(){
+		return companyRepository.findAll();
+		
+	}
+	
+	public Company findById(String companyCode)
+	{
+		Optional<Company> companyId =companyRepository.findById(companyCode);
+		if(!companyId.isPresent())
+			return null;
+		return companyId.get();
+	}
+	
+	public Company addCompany(Company company)
+	{
+		return companyRepository.save(company);
+	}
+	
+	public Company editCompany(Company company)
+	{
+		return companyRepository.save(company);
+	}
+	
+	public void deleteCompany(String companyCode)
+	{
+		return companyRepository.save(companyCode);
+	}
+	
+	
+
+}
