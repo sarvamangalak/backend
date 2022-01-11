@@ -6,13 +6,37 @@ import java.time.LocalTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 @Document(collection ="company")
 public class Stock {
 	
 	private String companyCode;
 	private float price;
+	 @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private  LocalDate date = LocalDate.now();
 	private LocalTime time =LocalTime.now();
+	private float min;
+	private float max;
+	private float avg;
+	
+	public float getMin() {
+		return min;
+	}
+	public void setMin(float min) {
+		this.min = min;
+	}
+	public float getMax() {
+		return max;
+	}
+	public void setMax(float max) {
+		this.max = max;
+	}
+	public float getAvg() {
+		return avg;
+	}
+	public void setAvg(float avg) {
+		this.avg = avg;
+	}
 	public String getCompanyCode() {
 		return companyCode;
 	}
