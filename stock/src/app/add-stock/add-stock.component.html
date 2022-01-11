@@ -1,1 +1,35 @@
-<p>add-stock works!</p>
+<html>
+    <body>
+        <div class ="loginHeading">
+            <img (click)="add()"  src ="assets/images/return.JPG" class = "button1" style ="width:50px;height:47px;">
+                <img src ="assets/images/stock.JPG" class = "button1" style ="width:120px;height:58px;margin-left: 490px;"><br>
+                <img src ="assets/images/addcp.JPG" class = "button1" style ="width:480px;height:98px;margin-left: 90px;">
+
+            
+        </div>
+       
+        <div id = "outer">
+            <form [formGroup]="Register" (ngSubmit)="collection()">
+        <div id ="id01" class="modal">
+            <div class="container">
+                <label ><b>CompanyCode</b></label> <br>
+                <input type = "text" class="form-control" placeholder="Enter Company Code" formControlName="companyCode" name ="companyCode" > <br>
+            </div> 
+            <div  class="container"> 
+                <label ><b>Price</b></label> <br>
+                <input type = "text"  class="form-control" placeholder="Enter price" formControlName="price" name ="price"> <br>
+            </div> 
+           
+            <div class= "submit">
+                <button type="submit" (click)="sub()"   class="button">Submit</button>
+               
+            </div>
+        </div>
+        </form>
+    </div>
+            
+            <br>
+            <img src ="assets/images/bottomq.JPG" class = "button1" style ="width:380px;height:68px;margin-left: 90px;">
+  
+    </body>
+</html>

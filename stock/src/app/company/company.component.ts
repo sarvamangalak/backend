@@ -16,4 +16,20 @@ export class CompanyComponent implements OnInit {
    this.router.navigate(['app-add-company'])
    
   }
+  view()
+  {
+   this.router.navigate(['app-view-company'])
+   
+  }
+  del()
+  {
+   this.router.navigate(['app-del-company'])
+   
+  }
+  stock()
+  {
+    this.router.navigate(['app-stock'])
+    
+   }
+  
 }

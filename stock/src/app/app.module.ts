@@ -14,7 +14,9 @@ import { StockComponent } from './stock/stock.component';
 import { AddStockComponent } from './add-stock/add-stock.component';
 import { DelCompanyComponent } from './del-company/del-company.component';
 import { ViewCompanyComponent } from './view-company/view-company.component';
+
 import { RestService } from './add-company/rest.service';
+import { ViewStockComponent } from './view-stock/view-stock.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { RestService } from './add-company/rest.service';
     StockComponent,
     AddStockComponent,
     DelCompanyComponent,
-    ViewCompanyComponent
+    ViewCompanyComponent,
+    ViewStockComponent
   ],
   imports: [
     BrowserModule,
