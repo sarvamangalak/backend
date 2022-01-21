@@ -1,0 +1,25 @@
+package com.stock.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.stock.model.Stock;
+import com.stock.repository.stockRepos;
+
+public class StockRepoService implements stockRepos {
+
+	@Override
+	public List<Stock> findByMaxMin(String companyCode, LocalDate from, LocalDate to) {
+		
+		@Autowired
+		private MongoOperations mongoops;
+		
+		
+		return null;
+	}
+	
+	
+
+}

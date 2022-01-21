@@ -1,0 +1,67 @@
+package com.stock.service;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.stereotype.Service;
+
+import com.stock.model.Stock;
+import com.stock.repository.StockRepository;
+
+
+@Service
+public class StockService {
+	@Autowired
+	StockRepository stockRepository;
+	
+	public List<Stock> getStockDetails(){
+		return stockRepository.findAll();
+		
+	}
+	
+	public List<Stock> findByCompanyCode(String companyCode)
+	{
+		List<Stock> stockId =stockRepository.findByCompanyCode(companyCode);
+		
+		return stockId;
+	}
+	
+	public List<Stock> findByDate(String companyCode,LocalDate from ,LocalDate to)
+	{
+		List<Stock> stockId =stockRepository.findByDate(companyCode,from,to);
+		
+		return stockId;
+	}
+	
+	public List<Stock> findByMaxMin(String companyCode,LocalDate from ,LocalDate to)
+	{//Aggregation agger = Aggregation.newAggregation(Aggregation.match(Criteria.where("companyCode").is(companyCode).and("date").lt(to).gt(from),Aggregation.group("companyCode").avg("price").as("avg").min("price").as("min").max("price").as("max"));
+	
+		Aggregation aggr = Aggregation.newAggregation(Aggregation.match(Criteria.where("companyCode").is(companyCode).and("date").lt(to).gt(from)),Aggregation.group("companyCode").avg("price").as("avg").min("price").as("min").max("price").as("max"));
+		List<Stock> stockId =stockRepository.findByMaxMin(aggr,companyCode,from,to);
+		
+		return stockId;
+	}
+	
+	public Stock addstock(Stock stock)
+	{
+		Stock stockDetails =stockRepository.save(stock);
+		return stockDetails;
+	}
+	
+	public Stock editstock(Stock stock)
+	{
+		return stockRepository.save(stock);
+	}
+	
+	public void deletestock(String stockCode)
+	{
+		 stockRepository.deleteById(stockCode);
+	}
+	
+	
+}

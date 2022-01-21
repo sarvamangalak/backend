@@ -1,0 +1,8 @@
+package com.stock.repository;
+
+import org.springframework.stereotype.Repository;
+import com.stock.model.Stock;
+@Repository
+public class StockRepo implements Stock {
+
+}

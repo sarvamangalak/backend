@@ -1,0 +1,36 @@
+package com.stock.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.stereotype.Service;
+
+import com.stock.model.Stock;
+import com.stock.repository.stockRepos;
+@Service
+public class StockRepoService implements stockRepos {
+
+	@Autowired 
+	MongoOperations MongoOperations;
+	
+	@Override
+	public List<Stock> findByMaxMin(String companyCode, LocalDate from, LocalDate to) {
+		
+		Aggregation aggr = Aggregation.newAggregation(Aggregation.match(Criteria.where("companyCode").is(companyCode).and("date").lt(to).gt(from)),Aggregation.group("companyCode").avg("price").as("avg").min("price").as("min").max("price").as("max"));
+			AggregationResults<Stock> st = MongoOperations.aggregate(aggr, Stock.class, Stock.class);
+
+		
+		
+		
+		
+		return st.getMappedResults();
+	}
+	
+	
+
+}

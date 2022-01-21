@@ -1,0 +1,29 @@
+package com.stock.repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.stereotype.Repository;
+import com.stock.model.Stock;
+@Repository
+public class StockRepo  {
+	
+	@Autowired
+	MongoTemplate mongoTemplate;
+	public List<Stock> findByMaxMin(){
+		String companyCode = null;LocalDate from ;LocalDate to = null;
+	Aggregation<List<Stock>> aggr =
+			  Aggregation.newAggregation(Aggregation.match(Criteria.where("companyCode").is
+			  (companyCode).and("date").lt(to).gt(from)),Aggregation.group("companyCode").
+			  avg("price").as("avg").min("price").as("min").max("price").as("max"));
+	return aggr;
+	
+			 
+	
+
+}
+}

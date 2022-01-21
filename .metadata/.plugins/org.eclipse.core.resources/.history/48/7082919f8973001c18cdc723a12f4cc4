@@ -1,0 +1,6 @@
+package com.stock.repository;
+
+public interface stockRepos {
+	public List<Stock> findByMaxMin(String companyCode,LocalDate from ,LocalDate to);
+
+}

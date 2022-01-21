@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
 import com.stock.model.Stock;
@@ -35,6 +37,7 @@ public class StockService {
 		
 		return stockId;
 	}
+	
 	
 	public Stock addstock(Stock stock)
 	{
