@@ -41,7 +41,7 @@ export class AddStockComponent  {
 
  add()
  {
-  this.router.navigate(['app-company'])
+  this.router.navigate(['app-stock'])
   
  }
 

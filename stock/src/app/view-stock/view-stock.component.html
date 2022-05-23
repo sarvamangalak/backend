@@ -1,1 +1,51 @@
-<p>view-stock works!</p>
+<html>
+  <body>
+        <div class ="loginHeading">
+            <img (click)="add()"  src ="assets/images/return.JPG" class = "button1" style ="width:50px;height:47px;">
+                <img src ="assets/images/stock.JPG" class = "button1" style ="width:120px;height:58px;margin-left: 490px;"><br>
+                <img src ="assets/images/addcp.JPG" class = "button1" style ="width:480px;height:108px;margin-left: 90px;">
+
+            
+        </div>
+        
+
+    <div id ="id01" class="modal12">
+      <div class="container">
+          <input type = "text" class="form-control" placeholder="Enter Company Code" [(ngModel)]="companyCode" formControlName="companyCode" name ="companyCode" > <br>
+      </div> 
+      <div  class="container"> 
+         <input type = "text"  class="form-control" placeholder="from" formControlName="from" [(ngModel)]="from" name ="from"> <br>
+      </div> 
+      <div  class="container">
+         <input type = "text" class="form-control" placeholder="to" formControlName="to" [(ngModel)]="to" name ="to" > <br>
+      </div> 
+      
+      <button (click)="collection(companyCode,from,to)" class="btn btn-danger mx-6">View</button>
+     
+      
+  </div>
+  <div id = "outer">
+    <div id ="id01" class="modal">
+  <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">companyCode</th>
+          <th scope="col">price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of company">
+          <td>{{row.companyCode}}</td>
+   
+<td>{{row.price}}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div><br>
+         <img src ="assets/images/bottomq.JPG" class = "button1" style ="width:380px;height:68px;margin-left: 90px;">
+
+          </body>
+</html>

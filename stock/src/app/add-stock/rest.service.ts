@@ -13,7 +13,7 @@ export class RestService {
 
   RegisterUser(data:any){
 
-  return this.http.post<any>("http://localhost:8082/post",data)
+  return this.http.post<any>("http://localhost:7123/stockdata/post",data)
   
   }
   

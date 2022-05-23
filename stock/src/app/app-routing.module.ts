@@ -9,6 +9,7 @@ import { DelCompanyComponent } from './del-company/del-company.component';
 import { AddStockComponent } from './add-stock/add-stock.component';
 import { ViewStockComponent } from './view-stock/view-stock.component';
 import { StockComponent } from './stock/stock.component';
+import { ViewstockdateComponent } from './viewstockdate/viewstockdate.component';
 const routes: Routes = [
   {path:'home',component:HomePageComponent},
   {path:"app-login-page", component:LoginPageComponent},
@@ -19,6 +20,8 @@ const routes: Routes = [
   {path:"app-add-stock", component:AddStockComponent},
   {path:"app-view-stock", component:ViewStockComponent},
   {path:"app-stock", component:StockComponent},
+  {path:"app-viewstockdate", component:ViewstockdateComponent},
+  
 ];
 
 

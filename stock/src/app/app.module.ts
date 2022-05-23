@@ -17,7 +17,8 @@ import { ViewCompanyComponent } from './view-company/view-company.component';
 
 import { RestService } from './add-company/rest.service';
 import { ViewStockComponent } from './view-stock/view-stock.component';
-
+import { ViewstockdateComponent } from './viewstockdate/viewstockdate.component';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ViewStockComponent } from './view-stock/view-stock.component';
     AddStockComponent,
     DelCompanyComponent,
     ViewCompanyComponent,
-    ViewStockComponent
+    ViewStockComponent,
+    ViewstockdateComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { ViewStockComponent } from './view-stock/view-stock.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

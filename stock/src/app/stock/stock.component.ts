@@ -19,7 +19,7 @@ export class StockComponent implements OnInit {
   }
   view()
   {
-   this.router.navigate(['app-view-stock'])
+   this.router.navigate(['app-viewstockdate'])
    
   }
  
